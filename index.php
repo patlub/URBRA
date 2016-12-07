@@ -2,9 +2,9 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <!--    <script src="http://www.w3schools.com/lib/w3data.js"></script>-->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300" rel="stylesheet">
-    <title>URBRA</title>
+    <title>URBRA2</title>
     <style type="text/css">
         body {
             background: #f9f3e7;
@@ -74,8 +74,7 @@
 
         .service-box {
             padding: 4%;
-            /*box-shadow: 10px 10px 5px #dbe8d7;*/
-            /*background: #A57F30;*/
+            padding-bottom: 3%!important;
         }
 
         .service-title {
@@ -89,18 +88,31 @@
             color: #ffffff;
             border: 1px solid #ffffff;
         }
-
+        .row{
+            margin-left: -6.5px!important;
+            margin-right: -6.5px!important;
+        }
+        .container {
+            width: 1250px!important;
+        }
+        .navbar {
+            margin-bottom: 10px!important;
+        }
+        .container {
+            padding-right: 0!important;
+            padding-left: 0!important;
+        }
+        #services-row .thumbnail {
+            margin-bottom: 0!important;
+        }
 
     </style>
 </head>
 <body>
 <div class="container-fluid">
-    <div class="row" w3-include-html="imports/menu2.html">
-
+    <div class="row">
+        <?php include_once 'imports/menu.php'; ?>
     </div>
-    <script>
-        w3IncludeHTML();
-    </script>
     <div class="row" style="">
         <div class="col-md-8">
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -138,14 +150,14 @@
                 </div>
 
                 <!-- Controls -->
-                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+                <!--                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">-->
+                <!--                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>-->
+                <!--                    <span class="sr-only">Previous</span>-->
+                <!--                </a>-->
+                <!--                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">-->
+                <!--                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>-->
+                <!--                    <span class="sr-only">Next</span>-->
+                <!--                </a>-->
             </div>
         </div>
         <div class="col-md-4">
@@ -168,7 +180,7 @@
         </div>
 
 
-        <div class="col-md-4" style="padding-top: 1%;">
+        <div class="col-md-4">
             <div class="col-md-5 thumbnail page-thumb" style="margin-right: 10%;">
                 <div class="row" align="center">
                     <img src="img/resources2.png" width="50" height="48">
@@ -186,7 +198,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4" style="padding-top: 1%;">
+        <div class="col-md-4">
             <div class="col-md-5 thumbnail page-thumb" style="margin-right: 10%;">
                 <div class="row" align="center">
                     <img src="img/vacancy.png" width="50" height="48">
@@ -206,7 +218,7 @@
         </div>
 
 
-        <div class="col-md-4" style="padding-top: 1%;">
+        <div class="col-md-4">
             <div class="col-md-5 thumbnail page-thumb" style="margin-right: 10%;">
                 <div class="row" align="center">
                     <img src="img/biz.png" width="50" height="48">
@@ -227,7 +239,7 @@
     </div>
 
 
-    <div class="row" style="margin-top: 2%;background: #A57F30;" align="center">
+    <div id="services-row" class="row" style="margin-top: 2%;" align="center">
         <div class="col-md-4 thumbnail service-box">
             <img src="img/licenses.jpg" class="service-image img-circle">
 
@@ -263,10 +275,10 @@
             </div>
         </div>
     </div>
-    <div class="row" w3-include-html="imports/footer.html">
+    <?php include_once 'imports/footer.php'; ?>
 
-    </div>
 </div>
-<div class="row" w3-include-html="imports/contact.html"></div>
+<?php include_once 'imports/contact.php'; ?>
+
 </body>
 </html>
