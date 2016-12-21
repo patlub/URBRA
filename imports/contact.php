@@ -1,28 +1,26 @@
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-top: 5%;">
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-top: 5%;">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Contact Us</h4>
+                <h4 class="modal-title" id="myModalLabel">Comment</h4>
             </div>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-7">
                         <form role="form" method="post">
                             <div class="form-group">
-                                <input type="text" id="name" name="name" class="form-control"
-                                       placeholder="Name"
-                                       required>
+                                <label for="name">Name</label><input type="text" id="name" name="name" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" id="email" name="email" class="form-control"
-                                       placeholder="Email Address">
+                                <label for="email">Email</label><input type="email" id="email" name="email" class="form-control">
                             </div>
                             <div class="form-group">
-                                <textarea cols="50" rows="10" id="content" name="content" class="form-control"
-                                          placeholder="Text"
-                                          required=""></textarea>
+                                <label for="subject">Subject</label><input type="text" id="subject" name="subject" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="content">Comment</label><textarea cols="50" rows="5" id="content" name="content" class="form-control" required=""></textarea>
                             </div>
 
                             <div class="form-group">
