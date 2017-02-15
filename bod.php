@@ -7,7 +7,7 @@ require_once 'classes/DatabaseHelper.php';
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-    <title>Licensed Administrators</title>
+    <title>Board of Directors</title>
 </head>
 <body>
 <div class="container-fluid">
@@ -16,25 +16,14 @@ require_once 'classes/DatabaseHelper.php';
     </div>
     <div class="row">
         <div class="col-md-10">
-            <table id="table" cellpadding="0" cellspacing="0" border="0"
-                   class="table table-striped table-bordered">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Address</th>
-                    <th>Web link</th>
-                </tr>
-                </thead>
-                <tbody>
+            <div class="row"><h2>Board of Directors </h2></div>
+
                 <?php
 
                 $db_helper = new DatabaseHelper();
-                $db_helper->get_administrators();
+                $db_helper->get_bods();
 
                 ?>
-                </tbody>
-            </table>
         </div>
     </div>
     <div class="row">

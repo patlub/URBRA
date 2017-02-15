@@ -1,8 +1,11 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300" rel="stylesheet">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" type="text/css" href="css/ticker.css">
 <style type="text/css">
     /*@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);*/
@@ -18,7 +21,7 @@
         z-index: 0!important;
     }
 </style>
-<div class="container">
+<div class="row col-md-12 col-lg-12 col-sm-12 row" style="padding-left: 0!important;padding-right: 0!important;margin-right: 0!important;">
     <div id="logo-box" class="row">
         <div class="col-md-4" align="center">
             <div id="value1" class="values">Innovativeness</div>
@@ -34,13 +37,13 @@
         <div class="col-md-3"></div>
         <div id="full-name" class="col-md-6">UGANDA RETIREMENT BENEFITS REGULATORY AUTHORITY</div>
         <div class="col-md-3">
-            <img src="img/facebook.png">
-            <img src="img/twitter.png">
-            <img src="img/linkedin.png">
-            <img src="img/youtube.png">
+            <a href="https://www.facebook.com/pages/Uganda-Retirement-Benefits-Regulatory-Authority/634342546684712"><img src="img/facebook.png"></a>
+            <a href="https://twitter.com/urbraUg"><img src="img/twitter.png"></a>
+            <a href="https://www.linkedin.com/company/uganda-retirement-benefits-regulatory-authority"><img src="img/linkedin.png"></a>
+            <a href="https://www.youtube.com/channel/UCJvRJbQxaSStkBzNSRR1oSg"><img src="img/youtube.png"></a>
         </div>
     </div>
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse" style="font-size: 110%;margin-right: 0!important;padding-right: 0!important;">
         <div class="navbar-header">
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -62,15 +65,14 @@
                         <li class="dropdown-header" style="font-size: 130%;color: #ff0000;padding-bottom: 5%;">
                             Trustees
                         </li>
-                        <li><a href="law_of_trustees.php">Licensing of a Trustee</a></li>
+                        <li><a href="law_of_trustees.php">Law of Trustees</a></li>
                         <li><a href="licensed_trustees.php">Licensed Trustees</a></li>
-                        <li><a href="trustees_application.php">Application of Trustee License</a></li>
+                        <li><a href="trustees_application.php">Online Application Form</a></li>
                     </ul>
                 </li>
 
-
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Benefit
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Retirement Benefit
                         Schemes <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li class="dropdown-header" style="font-size: 130%;color: #ff0000;padding-bottom: 5%;">Benefit
@@ -79,7 +81,7 @@
                         <li><a href="law_of_schemes.php">Law of Retirement Benefit
                                 Schemes</a></li>
                         <li><a href="licensed_schemes.php">Licensed Retirement Benefit Schemes</a></li>
-                        <li><a href="scheme_application.php">Application of Retirement Benefit Scheme Licence</a></li>
+                        <li><a href="scheme_application.php">Online Application Form</a></li>
                     </ul>
                 </li>
 
@@ -124,7 +126,8 @@
                                 <li class="dropdown-header">About Us</li>
                                 <li><a href="about_who_we_are.php">Who We Are</a></li>
                                 <li><a href="about_functions.php">Functions of the Authority</a></li>
-<!--                                <li><a href="about_structure.php">Organizational Structure</a></li>-->
+                                <li><a href="departments.php">Departments</a></li>
+                                <li><a href="bod.php">Board of Directors</a></li>
                             </ul>
                         </li>
                         <li class="col-sm-3">
@@ -187,59 +190,60 @@
                     </ul>
                 </li>
 
-                <li><a href="#">Resources</a></li>
+                <li><a href="resources.php">Resources</a></li>
+                <li><a href="vacancies.php">Vacancies</a></li>
+                <li><a href="tenders.php">Tenders</a></li>
                 <li><a href="contact.php">Contact</a></li>
             </ul>
         </div>
         <!-- /.nav-collapse -->
     </nav>
-    <div class="row">
-
+    <div class="row" style=" z-index: -10;">
         <div id="jquery-script-menu">
             <div class="ticker-container">
                 <div class="ticker-caption">
-                    <p>Latest News</p>
+                    <p>Latest</p>
                 </div>
                 <ul>
                     <div>
-                        <li><span>Latest News 1 &ndash; <a href="#">read more</a></span></li>
+                        <li><span>info 1 &ndash; <a href="#">read more</a></span></li>
                     </div>
                     <div>
-                        <li><span>Latest News 2 &ndash; <a href="#">read more</a></span></li>
+                        <li><span>info 2 &ndash; <a href="#">read more</a></span></li>
                     </div>
                     <div>
-                        <li><span>Latest News 3 &ndash; <a href="#">read more</a></span></li>
+                        <li><span>info 3 &ndash; <a href="#">read more</a></span></li>
                     </div>
                     <div>
-                        <li><span>Latest News 4 &ndash; <a href="#">read more</a></span></li>
+                        <li><span>info 4 &ndash; <a href="#">read more</a></span></li>
                     </div>
                     <div>
-                        <li><span>Latest News 5 &ndash; <a href="#">read more</a></span></li>
+                        <li><span>info 5 &ndash; <a href="#">read more</a></span></li>
                     </div>
                 </ul>
             </div>
         </div>
-
     </div>
 </div>
+<div id="success-alert" class="success-alert row" align="center">Added to mailing list</div>
+
 <script type="text/javascript">
     $(document).ready(function () {
-        $(".dropdown").hover(
-            function () {
-                $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("400");
-                $(this).toggleClass('open');
-            },
-            function () {
-                $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("400");
-                $(this).toggleClass('open');
-            }
-        );
+//        $(".dropdown").hover(
+//            function () {
+//                $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("400");
+//                $(this).toggleClass('open');
+//            },
+//            function () {
+//                $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("400");
+//                $(this).toggleClass('open');
+//            }
+//        );
 
         // run the fade() function every 2 seconds
         setInterval(function(){
             fade();
         },100);
-
 
         // toggle between fadeIn and fadeOut with 0.3s fade duration.
         function fade(){

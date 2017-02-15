@@ -54,8 +54,17 @@
                 <input type="submit" value="Subscribe" class="form-control btn-danger">
             </div>
     </form>
+
+    <div class="row">
+            <ul style="padding-left: 4%;">
+                <div class="col-md-2"><li><a href="faqs.php" style="color: #ffffff">FAQs</a></li></div>
+                <div class="col-md-2"><li><a href="glossary.php" style="color: #ffffff">Glossary</a></li></div>
+            </ul>
+
+    </div>
     <div class="col-md-12 footer-copyright">Copyright &copy; 2016. All Rights Reserved. Uganda Retirement Benefits
-        Regulartory
+        Regulatory
         Authority
     </div>
 </div>
+<div class="loader"><!-- Place at bottom of page --></div>

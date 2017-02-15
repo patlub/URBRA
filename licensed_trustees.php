@@ -1,3 +1,6 @@
+<?php
+require_once 'classes/DatabaseHelper.php';
+?>
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -13,46 +16,23 @@
     </div>
     <div class="row">
         <div class="col-md-10">
-            <table class="table table-bordered table-striped">
+            <table id="table" cellpadding="0" cellspacing="0" border="0"
+                   class="table table-striped table-bordered">
                 <thead>
                 <tr>
-                    <th>No.</th>
-                    <th>Corporate Trustee</th>
+                    <th>Name</th>
+                    <th>Category</th>
                     <th>Address</th>
+                    <th>Web link</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>KCB Bank Uganda Limited</td>
-                    <td>Commercial Plaza, Plot 7 Kampala road,
-                        P.O. Box 7399, Kampala
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Vivo Energy Uganda Provident Trust Limited</td>
-                    <td>Plot 9/11 7th Street Industrial Area
-                        Kampala
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Crane Bank Ltd</td>
-                    <td>Plot 38, Crane Chambers Kampala Road,
-                        P. O. Box 3673 Kampala
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Jomo Investments & Trustee Services Ltd</td>
-                    <td>Plot 374, block 392, Sekiunga Busiro, Wakiso</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Quanteast Advisory Ltd</td>
-                    <td>Plot 26, Buganda Road</td>
-                </tr>
+                <?php
+
+                $db_helper = new DatabaseHelper();
+                $db_helper->get_trustees();
+
+                ?>
                 </tbody>
             </table>
         </div>
@@ -62,7 +42,7 @@
         <?php include_once 'imports/contact.php'; ?>
 
         <a href="#" data-toggle="modal" data-target="#contactModal"><div id="qbtn">
-                Questions/Comments
+                Questions/<br>Comments
             </div></a>
     </div>
 </div>

@@ -226,10 +226,58 @@ td{
 
 #qbtn {
     position: fixed;
-    top: 11%;
-    left: 0;
-    width: 150px;
-    border: 3px solid #73AD21;
-    background-color: #c9cdc8;
+    top: 23%;
+    right: 0;
+    height: 50px;
+    width: 85px;
+    border: 3px solid #A57F30;
+    background-color: #FFFFFF;
     color: #222222;
+    font-weight: bold;
+    z-index: 100;
+}
+
+.media a:link{
+    margin-bottom: 5%;
+    color: #222222;
+    text-decoration: none;
+}
+
+.media a:visited{
+    color: #222222;
+    text-decoration: none;
+}
+
+.media a:hover{
+    text-decoration: underline;
+    color: #222222;
+}
+.loader {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, .8) url('http://localhost/UrbraCMS/img/ajax-loader.gif') 50% 50% no-repeat;
+}
+.success-alert{
+    display: none;
+    z-index: 10000;
+    background-color: #1fa142;
+    color: #ffffff;
+    padding: 2%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+#marquee-box {
+    /*float:left;*/
+    /*width:1000px;*/
+    border: 1px solid red;
+    height: 300px;
+    overflow-y: scroll;
+    max-height: 300px;
 }
