@@ -15,8 +15,8 @@ require_once 'classes/DatabaseHelper.php';
         <?php include_once 'imports/menu.php'; ?>
     </div>
     <div class="row">
-        <div class="col-md-10">
-            <div class="row"><h2>Board of Directors </h2></div>
+        <div class="row">
+            <div class="row" style="padding-left: 3%;"><h2>Board of Directors </h2></div>
 
                 <?php
 

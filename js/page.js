@@ -8,16 +8,17 @@ $(document).ready(function (e) {
     var slides_img_url = 'img/slideshowimgs/';
     async_get_slide_show();
     async_get_sec_1();
-    async_get_sec_2();
+    //async_get_sec_2();
     async_get_sec_3();
     add('mailing-form', 'php/add_mail.php');
+    add('send-email-form', 'php/send_mail.php');
+    add('comment-form', 'php/comment.php');
 
     function async_get_slide_show() {
         $.ajax({
             type: "POST",
             url: url + "php/get_slide_show.php",
             success: function (data) {
-
                 var json_obj = JSON.parse(data);
                 set_up_slide_show(json_obj);
             }
@@ -41,7 +42,7 @@ $(document).ready(function (e) {
                 $('#carousel-inner').append('<div  class="item active">' +
                 '<a href="' + link + '"><img src="' + image_name + '" alt="Slide image"></a>' +
                 '<div class="carousel-caption">' +
-                '<span class="caption-text">' + caption + '</span>' +
+                '<span class="caption-text caption">' + caption + '</span>' +
                 '</div>' +
                 '</div>');
             }
@@ -50,7 +51,7 @@ $(document).ready(function (e) {
                 $('#carousel-inner').append('<div class="item">' +
                 '<a href="' + link + '"><img src="' + image_name + '" alt="slide image"></a>' +
                 '<div class="carousel-caption">' +
-                '<span class="caption-text">' + caption + '</span>' +
+                '<span class="caption-text caption">' + caption + '</span>' +
                 '</div>' +
                 '</div>');
             }
@@ -73,31 +74,6 @@ $(document).ready(function (e) {
                 $("#sec_text1").text(text);
 
                 var $image = $("#sec_img1");
-                var $downloadingImage = $("<img>");
-                $downloadingImage.load(function () {
-                    $image.attr("src", $(this).attr("src"));
-                });
-                $downloadingImage.attr("src", img_url);
-            }
-        });
-    }
-
-    function async_get_sec_2() {
-        $.ajax({
-            type: "POST",
-            url: url + "php/get_sec2.php",
-            success: function (data) {
-
-                data = data.split("-");
-                var img_url = url + 'img/home_services/' + data[0];
-                var heading = data[1];
-                var text = data[2];
-
-                $("#sec_head2").text(heading);
-                $("#sec_btn2").val(heading);
-                $("#sec_text2").text(text);
-
-                var $image = $("#sec_img2");
                 var $downloadingImage = $("<img>");
                 $downloadingImage.load(function () {
                     $image.attr("src", $(this).attr("src"));
@@ -132,11 +108,12 @@ $(document).ready(function (e) {
         });
     }
 
-
     function add(form, url) {
         $("#" + form).on('submit', (function (e) {
             e.preventDefault();
             $('.loader').show();
+
+            var path = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
 
             $.ajax({
                 url: url, // Url to which the request is send
@@ -149,9 +126,24 @@ $(document).ready(function (e) {
                 {
                     $('.loader').hide();
                     if (data == true) {
-                        $('#success-alert').fadeIn(400).delay(3000).fadeOut(300); //fade out after 3 seconds
-                    } else {
-                        $('#network-error').fadeIn(400).delay(3000).fadeOut(400); //fade out after 3 seconds
+                        if(form == 'send-email-form'){
+                            $('#message-sent-alert').fadeIn(400).delay(3000).fadeOut(300); //fade out after 3 seconds
+                            $('#captcha-error').hide();
+                        }else{
+                            $('#success-alert').fadeIn(400).delay(3000).fadeOut(300); //fade out after 3 seconds
+                            $('#mail-captcha-error').hide();
+                        }
+
+                    }else if(data == '2'){
+                        if(form == 'send-email-form') {
+                            $('#captcha-error').show();
+                        }else{
+                            $('#mail-captcha-error').show();
+                        }
+                    }
+
+                    else {
+                        $('.error').fadeIn(400).delay(3000).fadeOut(400); //fade out after 3 seconds
                     }
                 },
                 error: function () {
@@ -166,9 +158,9 @@ $(document).ready(function (e) {
         }));
     }
 
-
     $("#myTabs").find("a").click(function (e) {
         e.preventDefault();
         $(this).tab('show')
     })
+
 });

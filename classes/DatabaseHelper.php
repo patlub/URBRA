@@ -22,28 +22,26 @@ class DatabaseHelper
         $statementHandler = $dbh->prepare("SELECT * FROM rbs ORDER BY name ASC");
         $statementHandler->execute();
         if ($statementHandler->rowCount() > 0) {
+            $i = 1;
             while ($scheme = $statementHandler->fetch(PDO::FETCH_ASSOC)) {
-                $id = $scheme['id'];
                 $name = $scheme['name'];
-                $category = $scheme['category'];
                 $address = $scheme['address'];
                 $web_link = $scheme['web_link'];
 
                 ?>
                 <tr>
                     <td>
-                        <?php echo $name; ?>
+                        <?php echo $i; ?>
                     </td>
-                    <td>
-                        <?php echo $category; ?></td>
+                    <td style="padding-left: 2%;">
+                        <a href="<?php echo $web_link;?>"><?php echo $name; ?></a>
+                    </td>
                     <td>
                         <?php echo $address; ?>
                     </td>
-                    <td>
-                        <?php echo $web_link; ?>
-                    </td>
                 </tr>
-            <?php
+                <?php
+                $i++;
             }
         } else {
             echo false;
@@ -51,35 +49,64 @@ class DatabaseHelper
     }
 
 
-    function get_trustees()
+    function get_corporate_trustees()
     {
         $dbh = $this->connectDB();
-        $statementHandler = $dbh->prepare("SELECT * FROM trustees ORDER BY name ASC");
+        $statementHandler = $dbh->prepare("SELECT * FROM corporate_trustees ORDER BY name ASC");
         $statementHandler->execute();
         if ($statementHandler->rowCount() > 0) {
+            $i = 1;
             while ($trustee = $statementHandler->fetch(PDO::FETCH_ASSOC)) {
-                $id = $trustee['id'];
                 $name = $trustee['name'];
-                $category = $trustee['category'];
                 $address = $trustee['address'];
                 $web_link = $trustee['web_link'];
 
                 ?>
                 <tr>
                     <td>
-                        <?php echo $name; ?>
+                        <?php echo $i; ?>
                     </td>
                     <td>
-                        <?php echo $category; ?></td>
+                        <a href="<?php echo $web_link;?>"><?php echo $name; ?></a>
+
+                    </td>
                     <td>
                         <?php echo $address; ?>
                     </td>
-                    <td>
-                        <?php echo $web_link; ?>
-                    </td>
-
                 </tr>
-            <?php
+                <?php
+                $i++;
+            }
+        } else {
+            echo false;
+        }
+    }
+
+    function get_individual_trustees()
+    {
+        $dbh = $this->connectDB();
+        $statementHandler = $dbh->prepare("SELECT * FROM individual_trustees  ORDER BY name ASC");
+        $statementHandler->execute();
+        if ($statementHandler->rowCount() > 0) {
+            $i = 1;
+            while ($trustee = $statementHandler->fetch(PDO::FETCH_ASSOC)) {
+                $name = $trustee['name'];
+                $scheme = $trustee['scheme'];
+
+                ?>
+                <tr>
+                    <td>
+                        <?php echo $i; ?>
+                    </td>
+                    <td>
+                        <?php echo $name; ?>
+                    </td>
+                    <td>
+                        <?php echo $scheme; ?>
+                    </td>
+                </tr>
+                <?php
+                $i++;
             }
         } else {
             echo false;
@@ -92,29 +119,26 @@ class DatabaseHelper
         $statementHandler = $dbh->prepare("SELECT * FROM custodians ORDER BY name ASC");
         $statementHandler->execute();
         if ($statementHandler->rowCount() > 0) {
+            $i = 1;
             while ($custodian = $statementHandler->fetch(PDO::FETCH_ASSOC)) {
-                $id = $custodian['id'];
                 $name = $custodian['name'];
-                $category = $custodian['category'];
                 $address = $custodian['address'];
                 $web_link = $custodian['web_link'];
 
                 ?>
                 <tr>
                     <td>
-                        <?php echo $name; ?>
+                        <?php echo $i; ?>
                     </td>
                     <td>
-                        <?php echo $category; ?></td>
+                        <a href="<?php echo $web_link;?>"><?php echo $name; ?></a>
+                    </td>
                     <td>
                         <?php echo $address; ?>
                     </td>
-                    <td>
-                        <?php echo $web_link; ?>
-                    </td>
-
                 </tr>
-            <?php
+                <?php
+                $i++;
             }
         } else {
             echo false;
@@ -127,28 +151,26 @@ class DatabaseHelper
         $statementHandler = $dbh->prepare("SELECT * FROM administrators ORDER BY name ASC");
         $statementHandler->execute();
         if ($statementHandler->rowCount() > 0) {
+            $i = 1;
             while ($custodian = $statementHandler->fetch(PDO::FETCH_ASSOC)) {
-                $id = $custodian['id'];
                 $name = $custodian['name'];
-                $category = $custodian['category'];
                 $address = $custodian['address'];
                 $web_link = $custodian['web_link'];
 
                 ?>
                 <tr>
                     <td>
-                        <?php echo $name; ?>
+                        <?php echo $i; ?>
                     </td>
                     <td>
-                        <?php echo $category; ?></td>
+                      <a href="<?php echo $web_link;?>"><?php echo $name; ?></a>
+                    </td>
                     <td>
                         <?php echo $address; ?>
                     </td>
-                    <td>
-                        <?php echo $web_link; ?>
-                    </td>
                 </tr>
-            <?php
+                <?php
+                $i++;
             }
         } else {
             echo false;
@@ -161,28 +183,26 @@ class DatabaseHelper
         $statementHandler = $dbh->prepare("SELECT * FROM fund_managers ORDER BY name ASC");
         $statementHandler->execute();
         if ($statementHandler->rowCount() > 0) {
+            $i = 1;
             while ($fund_managers = $statementHandler->fetch(PDO::FETCH_ASSOC)) {
-                $id = $fund_managers['id'];
                 $name = $fund_managers['name'];
-                $category = $fund_managers['category'];
                 $address = $fund_managers['address'];
                 $web_link = $fund_managers['web_link'];
 
                 ?>
                 <tr>
                     <td>
-                        <?php echo $name; ?>
+                        <?php echo $i; ?>
                     </td>
                     <td>
-                        <?php echo $category; ?></td>
-                    <td>
-                        <?php echo $web_link; ?>
+                        <a href="<?php echo $web_link;?>"><?php echo $name; ?></a>
                     </td>
                     <td>
                         <?php echo $address; ?>
                     </td>
                 </tr>
-            <?php
+                <?php
+                $i++;
             }
         } else {
             echo false;
@@ -192,32 +212,49 @@ class DatabaseHelper
 
     function get_vacancies()
     {
-        $date = date('Y-m-d h-m-s');
         $dbh = $this->connectDB();
-        $statementHandler = $dbh->prepare("SELECT * FROM vacancies WHERE start_date < :cur_date AND end_date > :cur_date");
-        $statementHandler->bindParam(':cur_date', $date);
+//        $statementHandler = $dbh->prepare("SELECT * FROM vacancies WHERE start_date >= :cur_date AND end_date > :cur_date");
+        $statementHandler = $dbh->prepare("SELECT * FROM vacancies WHERE start_date <= NOW() AND end_date >= NOW()");
         $statementHandler->execute();
         if ($statementHandler->rowCount() > 0) {
+            $i = 1;
             while ($vacancy = $statementHandler->fetch(PDO::FETCH_ASSOC)) {
                 $title = $vacancy['title'];
                 $desc = $vacancy['description'];
                 $attachment = $vacancy['attachment'];
 
                 ?>
-                <tr>
-                    <td>
-                        <?php echo $title; ?>
-                    </td>
-                    <td>
-                        <?php echo $desc; ?>
-                    </td>
-                    <td>
-                        <a href="<?php echo 'http://' . $this->url . 'docs/' . $attachment ?>" target="_blank"><img
-                                src="img/pdf.png"></a>
-                    </td>
-                </tr>
-            <?php
+
+                <div class="panel panel-default" style="margin-bottom: 1px!important;">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion"
+                               href="<?php echo '#' . $i; ?>"
+                               aria-expanded="true" aria-controls="collapseTwo">
+                                Job Title: <?php echo $title; ?>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="<?php echo $i; ?>" class="panel-collapse collapse in" role="tabpanel"
+                         aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                            Description: <?php echo $desc; ?>
+
+                            <div style="padding-left: 3%" class="pull-right">
+                                Download: <a href="--><?php echo 'http://' . $this->url . 'docs/' . $attachment ?><!--"
+                                   target="_blank"><img
+                                        src="img/pdf.png"></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <?php
+                $i++;
             }
+
+
         } else {
             echo false;
         }
@@ -229,22 +266,33 @@ class DatabaseHelper
         $statementHandler = $dbh->prepare("SELECT * FROM faqs");
         $statementHandler->execute();
         if ($statementHandler->rowCount() > 0) {
+            $i = 1;
             while ($faq = $statementHandler->fetch(PDO::FETCH_ASSOC)) {
                 $question = $faq['question'];
                 $answer = $faq['answer'];
 
                 ?>
-                <tr>
-                    <td>
-                        <span style="font-weight: bold;">Question: </span><?php echo $question; ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding-left: 5%;">
-                        <span style="font-weight: bold;">Answer: </span><?php echo $answer; ?>
-                    </td>
-                </tr>
-            <?php
+
+                <div class="panel panel-default" style="margin-bottom: 1px!important;">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion"
+                               href="<?php echo '#' . $i; ?>"
+                               aria-expanded="true" aria-controls="collapseTwo">
+                                Question: <?php echo $question; ?>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="<?php echo $i; ?>" class="panel-collapse collapse" role="tabpanel"
+                         aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                            Answer: <?php echo $answer; ?>
+                        </div>
+                    </div>
+                </div>
+
+                <?php
+                $i++;
             }
         } else {
             echo false;
@@ -254,26 +302,27 @@ class DatabaseHelper
 
     function get_bods()
     {
-        $date = date('Y-m-d h-m-s');
         $dbh = $this->connectDB();
         $statementHandler = $dbh->prepare("SELECT * FROM bod");
         $statementHandler->execute();
         if ($statementHandler->rowCount() > 0) {
+            $i = 1;
             while ($bod = $statementHandler->fetch(PDO::FETCH_ASSOC)) {
                 $name = $bod['name'];
                 $details = $bod['details'];
                 $image = $bod['image'];
 
+                if($i == 3){echo '<br>';}
                 ?>
-                <div class="col-md-6" align="center">
+
+                <div class="col-md-4 col-sm-4" align="center" style="margin-bottom: 5%;">
                     <div><img src="<?php echo 'http://' . $this->url . 'img/' . $image ?>" class="img-responsive"></div>
-                    <div class="col-md-12"><?php echo $name ?></div>
-                    <div class="col-md-12"><?php echo $details ?></div>
+                    <div class="col-md-12" style="font-weight: bold;"><?php echo $name ?></div>
+                    <div class="col-md-12" style=""><?php echo $details ?></div>
                 </div>
 
-
             <?php
-            }
+            $i++;}
         } else {
             echo false;
         }
@@ -431,11 +480,9 @@ class DatabaseHelper
         if ($statementHandler->rowCount() > 0) {
             while ($article = $statementHandler->fetch(PDO::FETCH_ASSOC)) {
                 $title = $article['title'];
-
                 ?>
-
                 <div>
-                    <li><span>info 1 &ndash; <a href="#"><?php echo $title; ?></a></span></li>
+                    <li><span><a href="#"><?php echo $title; ?></a></span></li>
                 </div>
             <?php
             }
@@ -554,7 +601,6 @@ class DatabaseHelper
     }
 
 
-
     public function get_media()
     {
         $dbh = $this->connectDB();
@@ -569,12 +615,13 @@ class DatabaseHelper
 
                 ?>
                 <div class="media">
-                    <a href="<?php echo 'http://'.$this->url . 'docs/' . $link; ?>" target="_blank">
-                            <dt><?php echo $title; ?></dt>
+                    <a href="<?php echo 'http://' . $this->url . 'docs/' . $link; ?>" target="_blank">
+                        <dt><?php echo $title; ?></dt>
 
-                            <dd><?php echo $source.' '.$date; ?></dd>
-
-
+                        <dd><img src="img/news_icon.png" width="15" height="15"
+                                 style="margin-right: 1%;"><?php echo $source; ?>
+                            <img src="img/clock_icon.png" width="15" height="15"
+                                 style="margin-left: 2%;margin-right: 2%;"><?php echo $date; ?></dd>
                     </a>
                 </div>
             <?php
@@ -592,12 +639,15 @@ class DatabaseHelper
                 $link = $emedia['link'];
 
                 ?>
-                <div class="media" ">
-                    <a href="<?php echo 'http://'.$link; ?>" target="_blank">
+                <div class="media">
+                    <a href="<?php echo 'http://' . $link; ?>" target="_blank">
                         <div>
                             <dt><?php echo $title; ?></dt>
 
-                            <dd><?php echo $source.' '.$date; ?></dd>
+                            <dd><img src="img/news_icon.png" width="15" height="15"
+                                     style="margin-right: 1%;"><?php echo $source; ?>
+                                <img src="img/clock_icon.png" width="15" height="15"
+                                     style="margin-left: 2%;margin-right: 2%;"><?php echo $date; ?></dd>
 
                         </div>
                     </a>
@@ -607,54 +657,164 @@ class DatabaseHelper
         }
     }
 
-    public function fetch_trustee_law(){
+    public function fetch_trustee_law()
+    {
         $dbh = $this->connectDB();
-        $stmt = $dbh->prepare('SELECT * FROM laws WHERE provider = :provider');
-        $provider = 'trustee';
-        $stmt->bindParam(':provider',$provider);
+        $stmt = $dbh->prepare('SELECT * FROM trustee_law');
         $stmt->execute();
-        $law = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $law;
+        while ($law = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $tab = $law['tab'];
+            $detail = $law['details'];
+
+            ?>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                           aria-expanded="true" aria-controls="collapseOne">
+                            <?php echo $tab; ?>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
+                     aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        <?php echo $detail; ?>
+                    </div>
+                </div>
+            </div>
+        <?php
+
+        }
     }
 
-    public function fetch_scheme_law(){
+    public function fetch_scheme_law()
+    {
         $dbh = $this->connectDB();
-        $stmt = $dbh->prepare('SELECT * FROM laws WHERE provider = :provider');
-        $provider = 'scheme';
-        $stmt->bindParam(':provider',$provider);
+        $stmt = $dbh->prepare('SELECT * FROM scheme_law');
         $stmt->execute();
-        $law = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $law;
+        while ($law = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $tab = $law['tab'];
+            $detail = $law['details'];
+
+            ?>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                           aria-expanded="true" aria-controls="collapseOne">
+                            <?php echo $tab; ?>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
+                     aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        <?php echo $detail; ?>
+                    </div>
+                </div>
+            </div>
+        <?php
+
+        }
     }
 
-    public function fetch_admin_law(){
+    public function fetch_admin_law()
+    {
         $dbh = $this->connectDB();
-        $stmt = $dbh->prepare('SELECT * FROM laws WHERE provider = :provider');
-        $provider = 'admin';
-        $stmt->bindParam(':provider',$provider);
+        $stmt = $dbh->prepare('SELECT * FROM admin_law');
         $stmt->execute();
-        $law = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $law;
+        while ($law = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $tab = $law['tab'];
+            $detail = $law['details'];
+
+            ?>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                           aria-expanded="true" aria-controls="collapseOne">
+                            <?php echo $tab; ?>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
+                     aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        <?php echo $detail; ?>
+                    </div>
+                </div>
+            </div>
+        <?php
+
+        }
     }
 
-    public function fetch_custodian_law(){
+    public function fetch_custodian_law()
+    {
         $dbh = $this->connectDB();
-        $stmt = $dbh->prepare('SELECT * FROM laws WHERE provider = :provider');
-        $provider = 'custodian';
-        $stmt->bindParam(':provider',$provider);
+        $stmt = $dbh->prepare('SELECT * FROM custodian_law');
         $stmt->execute();
-        $law = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $law;
+        while ($law = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $tab = $law['tab'];
+            $detail = $law['details'];
+
+            ?>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                           aria-expanded="true" aria-controls="collapseOne">
+                            <?php echo $tab; ?>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
+                     aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        <?php echo $detail; ?>
+                    </div>
+                </div>
+            </div>
+        <?php
+
+        }
     }
 
-    public function fetch_fund_manager_law(){
+    public function fetch_fund_manager_law()
+    {
         $dbh = $this->connectDB();
-        $stmt = $dbh->prepare('SELECT * FROM laws WHERE provider = :provider');
-        $provider = 'fund_manager';
-        $stmt->bindParam(':provider',$provider);
+        $stmt = $dbh->prepare('SELECT * FROM fund_manager_law');
         $stmt->execute();
-        $law = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $law;
+        while ($law = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $tab = $law['tab'];
+            $detail = $law['details'];
+
+            ?>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                           aria-expanded="true" aria-controls="collapseOne">
+                            <?php echo $tab; ?>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
+                     aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        <?php echo $detail; ?>
+                    </div>
+                </div>
+            </div>
+        <?php
+
+        }
     }
 
     public function fetch_who_we_are()
@@ -662,8 +822,31 @@ class DatabaseHelper
         $dbh = $this->connectDB();
         $stmt = $dbh->prepare('SELECT * FROM who_we_are');
         $stmt->execute();
-        $who_we_are = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $who_we_are;
+        while ($law = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $tab = $law['tab'];
+            $detail = $law['details'];
+
+            ?>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                           aria-expanded="true" aria-controls="collapseOne">
+                            <?php echo $tab; ?>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
+                     aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        <?php echo $detail; ?>
+                    </div>
+                </div>
+            </div>
+        <?php
+
+        }
     }
 
     public function fetch_functions()
@@ -671,8 +854,156 @@ class DatabaseHelper
         $dbh = $this->connectDB();
         $stmt = $dbh->prepare('SELECT * FROM functions');
         $stmt->execute();
-        $functions = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $functions;
+        while ($law = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $tab = $law['tab'];
+            $detail = $law['details'];
+
+            ?>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                           aria-expanded="true" aria-controls="collapseOne">
+                            <?php echo $tab; ?>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
+                     aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        <?php echo $detail; ?>
+                    </div>
+                </div>
+            </div>
+        <?php
+
+        }
+    }
+
+    public function add_mail($name, $email)
+    {
+        $id = '';
+        $dbh = $this->connectDB();
+        $stmt = $dbh->prepare('INSERT INTO mailing_list VALUES (:id, :_name, :email)');
+        $result = $stmt->execute(array('id' => $id, '_name' => $name, 'email' => $email));
+        return $result;
+    }
+
+    public function send_mail($name, $sender, $message)
+    {
+        $id = '';
+        $dbh = $this->connectDB();
+        $stmt = $dbh->prepare('INSERT INTO mail VALUES (:id, :_name, :sender, :email)');
+        $result = $stmt->execute(array('id' => $id, '_name' => $name, 'sender' => $sender, 'email' => $message));
+        if ($result) {
+            $to = 'urbra@urbra.go.ug';
+            $subject = 'Website Comment';
+            $result = mail($to, $subject, $message);
+            return $result;
+        }
+    }
+
+    public function custom_page($page_name)
+    {
+        $dbh = $this->connectDB();
+        $stmt = $dbh->prepare('SELECT * FROM content INNER JOIN pages ON pages.id = content.page_id WHERE pages.name = :page_name');
+        $stmt->execute(array('page_name' => $page_name));
+        $content = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $content['content'];
+    }
+
+    public function get_corp_trustee_stamp()
+    {
+        $dbh = $this->connectDB();
+        $stmt = $dbh->prepare('SELECT * FROM time_stamps WHERE licences = :licence');
+        $stmt->execute(array('licence' => 'Corporate_Trustees'));
+        $last_updated = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $last_updated['last_updated'];
+    }
+
+    public function get_ind_trustee_stamp()
+    {
+        $dbh = $this->connectDB();
+        $stmt = $dbh->prepare('SELECT * FROM time_stamps WHERE licences = :licence');
+        $stmt->execute(array('licence' => 'Individual_Trustees'));
+        $last_updated = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $last_updated['last_updated'];
+    }
+
+    public function get_admin_stamp()
+    {
+        $dbh = $this->connectDB();
+        $stmt = $dbh->prepare('SELECT * FROM time_stamps WHERE licences = :licence');
+        $stmt->execute(array('licence' => 'Administrators'));
+        $last_updated = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $last_updated['last_updated'];
+    }
+
+    public function get_custodian_stamp()
+    {
+        $dbh = $this->connectDB();
+        $stmt = $dbh->prepare('SELECT * FROM time_stamps WHERE licences = :licence');
+        $stmt->execute(array('licence' => 'Custodians'));
+        $last_updated = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $last_updated['last_updated'];
+    }
+
+    public function get_fund_manager_stamp()
+    {
+        $dbh = $this->connectDB();
+        $stmt = $dbh->prepare('SELECT * FROM time_stamps WHERE licences = :licence');
+        $stmt->execute(array('licence' => 'Fund_Managers'));
+        $last_updated = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $last_updated['last_updated'];
+    }
+
+    public function get_scheme_stamp()
+    {
+        $dbh = $this->connectDB();
+        $stmt = $dbh->prepare('SELECT * FROM time_stamps WHERE licences = :licence');
+        $stmt->execute(array('licence' => 'Schemes'));
+        $last_updated = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $last_updated['last_updated'];
+    }
+
+    public function search($search_term)
+    {
+        $dbh = $this->connectDB();
+        $stmt = $dbh->prepare('SELECT * FROM resources WHERE `name` LIKE :search_term');
+        $stmt->execute(array('search_term' => $search_term));
+        if ($stmt->rowCount() > 0) {
+            while ($resource = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $name = $resource['name'];
+                $attachment = $resource['pdf'];
+                ?>
+                <tr>
+                    <td>
+                        <?php echo $name; ?>
+                    </td>
+                    <td>
+                        <a href="<?php echo 'http://' . $this->url . 'docs/' . $attachment ?>" target="_blank"><img
+                                src="img/pdf.png"></a>
+                    </td>
+                </tr>
+            <?php
+            }
+        } else {
+            echo false;
+        }
+    }
+
+    public function get_you_tube_link()
+    {
+        $dbh = $this->connectDB();
+        $stmt = $dbh->prepare('SELECT * FROM youtube');
+        $result = $stmt->execute();
+        if($result){
+            $you_tube = $stmt->fetch(PDO::FETCH_ASSOC);
+            $link = $you_tube['link'];
+            return $link;
+        }
+        return false;
     }
 
     public function connectDB()
@@ -686,14 +1017,5 @@ class DatabaseHelper
         } catch (PDOException $e) {
             echo "Connection Error: " . $e->getMessage();
         }
-    }
-
-    public function add_mail($name, $email)
-    {
-        $id = '';
-        $dbh = $this->connectDB();
-        $stmt = $dbh->prepare('INSERT INTO mailing_list VALUES (:id, :_name, :email)');
-        $result = $stmt->execute(array('id' => $id, '_name' => $name, 'email' => $email));
-        return $result;
     }
 } 

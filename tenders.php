@@ -16,7 +16,7 @@ require_once 'classes/DatabaseHelper.php';
     </div>
     <div class="row">
         <div class="col-md-10">
-            <div class="row"><h2>Tenders</h2></div>
+            <div class="row"><h2 style="padding-left: 1%;">Tenders</h2></div>
             <script src="js/searchfilter.js" type="text/javascript"></script>
             <input type="text" id="search" onkeyup="Search()" placeholder="Search Tender" class="form-control">
             <table id="table" cellpadding="0" cellspacing="0" border="0"

@@ -7,7 +7,7 @@ require_once 'classes/DatabaseHelper.php';
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-    <title>Licensed Fund Managers</title>
+    <title>Licensed Individual Trustees</title>
 </head>
 <body>
 <div class="container-fluid">
@@ -16,13 +16,13 @@ require_once 'classes/DatabaseHelper.php';
     </div>
     <div class="row">
         <div class="col-md-4">
-            <h3 style="padding-left: 1%;">Licenced Fund Managers</h3>
+            <h3 style="padding-left: 1%;">Licenced Individual Trustees</h3>
         </div>
         <div class="col-md-8">
             <h4 class="pull-right">Last Updated:
                 <?php
                 $db_helper = new DatabaseHelper();
-                echo $db_helper->get_fund_manager_stamp();
+                echo $db_helper->get_ind_trustee_stamp();
                 ?>
             </h4>
         </div>
@@ -33,14 +33,14 @@ require_once 'classes/DatabaseHelper.php';
                 <tr>
                     <th>#</th>
                     <th>Name</th>
-                    <th>Address</th>
+                    <th>Scheme</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php
 
                 $db_helper = new DatabaseHelper();
-                $db_helper->get_fund_managers();
+                $db_helper->get_individual_trustees();
 
                 ?>
                 </tbody>

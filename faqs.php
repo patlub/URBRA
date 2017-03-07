@@ -16,19 +16,13 @@ require_once 'classes/DatabaseHelper.php';
     </div>
     <div class="row">
         <div class="col-md-10">
-            <div class="row"><h2>Frequently Asked Questions</h2></div>
-            <table id="table" cellpadding="0" cellspacing="0" border="0"
-                   class="table table-striped">
-
-                <tbody>
+            <div class="row"><h2 style="padding-left: 1%;">Frequently Asked Questions</h2></div>
                 <?php
 
                 $db_helper = new DatabaseHelper();
                 $db_helper->get_faqs();
 
                 ?>
-                </tbody>
-            </table>
         </div>
     </div>
     <div class="row">

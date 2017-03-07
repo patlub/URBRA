@@ -1,9 +1,15 @@
+<?php
+session_start();
+include("captcha/simple-php-captcha.php");
+$_SESSION['captcha'] = simple_php_captcha();
+?>
 <!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <title>Contact</title>
 </head>
 <body>
@@ -11,10 +17,12 @@
     <div class="row">
         <?php include_once 'imports/menu.php'; ?>
     </div>
+<!--    <script src="js/page.js" type="text/javascript"></script>-->
+    <div id="message-sent-alert" class="success-alert row" align="center">Message has been sent</div>
     <div class="row">
-        <h4 style="text-transform: uppercase;">Contact Page</h4>
+        <h4 style="text-transform: uppercase;padding-left: 1.5%;">Contact Page</h4>
     </div>
-    <form role="form" action="" method="post">
+    <form id="send-email-form" role="form" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md-5">
                 <div class="panel panel-default">
@@ -43,17 +51,32 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="firstname">Name</label><input type="text" id="firstname" name="firstname"
-                                                              class="form-control"
-                                                              required>
+                    <label for="name">Name</label><input type="text" id="name" name="name"
+                                                         maxlength="100"
+                                                         class="form-control"
+                                                         required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label><input type="email" id="email" name="email" class="form-control"
-                                                           required>
+                    <label for="sender">Email</label><input type="email" id="sender" name="sender" maxlength="100"
+                                                            class="form-control"
+                                                            required>
                 </div>
                 <div class="form-group">
-                    <label for="comment">Comment</label>
-                    <textarea id="comment" name="comment" rows="5" class="form-control"></textarea>
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" class="form-control"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <img src="<?php  echo $_SESSION['captcha']['image_src'];?>">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" id="captcha" name="mail-captcha"
+                                                         maxlength="5"
+                                                         class="form-control"
+                                                         placeholder="Enter captcha text"
+                                                         required>
+                    <div id="captcha-error" style="color: red;display: none;">Enter correct value</div>
                 </div>
                 <div class="form-group">
                     <input type="submit" value="SEND" class="form-control btn btn-primary">
@@ -70,10 +93,14 @@
     <div class="row">
         <?php include_once 'imports/footer.php'; ?>
         <?php include_once 'imports/contact.php'; ?>
-        <a href="#" data-toggle="modal" data-target="#contactModal"><div id="qbtn">
+        <a href="#" data-toggle="modal" data-target="#contactModal">
+            <div id="qbtn">
                 Questions/<br>Comments
-            </div></a>
+            </div>
+        </a>
     </div>
+    <div class="loader"><!-- Place at bottom of page --></div>
+
 </div>
 </body>
 </html>

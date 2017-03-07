@@ -23,11 +23,26 @@ require_once 'classes/DatabaseHelper.php';
     </script>
     <div class="row">
         <div class="row" style="background-color: #ffffff;">
-            <div class="row" style="padding-left: 1%;"><h2>Resources</h2></div>
+            <div class="pull-right">
+                <form id="search-form" role="form" method="get" action="search_results.php">
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="search" name="search" placeholder="Search resources">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="submit">Go!</button>
+                                </span>
+                        </div>
+                        <!-- /input-group -->
+                    </div>
+                    <!-- /.col-lg-6 -->
+                </form>
+            </div>
 
+            <div class="row" style="padding-left: 2%;">
+                <h2>Resources</h2>
+            </div>
 
-            <div class="row">
-
+            <div class="row" style="padding-left: 1%;">
                 <div id="tabs">
                     <ul>
                         <li><a href="#tabs-1">Acts</a></li>
@@ -38,7 +53,7 @@ require_once 'classes/DatabaseHelper.php';
                     <div id="tabs-1">
 
                         <script src="js/searchfilter.js" type="text/javascript"></script>
-                        <input type="text" id="search" onkeyup="Search()" placeholder="Search Resource"
+                        <input type="text" id="search" onkeyup="Search()" placeholder="Find"
                                class="form-control">
                         <table id="table" cellpadding="0" cellspacing="0" border="0"
                                class="table table-striped table-bordered">

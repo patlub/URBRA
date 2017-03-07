@@ -16,27 +16,27 @@ require_once 'classes/DatabaseHelper.php';
     </div>
     <div class="row">
         <div class="col-md-10">
-            <div class="row"><h2>Vacancies</h2></div>
-            <script src="js/searchfilter.js" type="text/javascript"></script>
-            <input type="text" id="search" onkeyup="Search()" placeholder="Search vacancy" class="form-control">
-            <table id="table" cellpadding="0" cellspacing="0" border="0"
-                   class="table table-striped">
-                <thead>
-                <tr>
-                    <th>Vacancy</th>
-                    <th>Description</th>
-                    <th>Attachment</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php
-
+            <div class="row"><h2 style="padding-left: 1%;">Vacancies</h2></div>
+<!--            <script src="js/searchfilter.js" type="text/javascript"></script>-->
+<!--            <input type="text" id="search" onkeyup="Search()" placeholder="Search vacancy" class="form-control">-->
+<!--            <table id="table" cellpadding="0" cellspacing="0" border="0"-->
+<!--                   class="table table-striped">-->
+<!--                <thead>-->
+<!--                <tr>-->
+<!--                    <th>Vacancy</th>-->
+<!--                    <th>Description</th>-->
+<!--                    <th>Attachment</th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                --><?php
+//
                 $db_helper = new DatabaseHelper();
                 $db_helper->get_vacancies();
-
-                ?>
-                </tbody>
-            </table>
+//
+//                ?>
+<!--                </tbody>-->
+<!--            </table>-->
         </div>
     </div>
     <div class="row">

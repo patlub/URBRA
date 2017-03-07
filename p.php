@@ -1,15 +1,13 @@
 <?php
-include_once 'classes/DatabaseHelper.php';
-$dbh = new DatabaseHelper();
+require_once 'classes/DatabaseHelper.php';
 ?>
-
 <!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-    <title>Law of Custodians</title>
+    <title><?php echo basename(__FILE__, '.php');?></title>
 </head>
 <body>
 <div class="container-fluid">
@@ -18,18 +16,12 @@ $dbh = new DatabaseHelper();
     </div>
     <div class="row">
         <div class="col-md-10">
-            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <?php
+            $dbh = new DatabaseHelper();
+            $content = $dbh->custom_page(basename(__FILE__, '.php'));
+            echo $content;
+            ?>
 
-                <?php $dbh->fetch_custodian_law(); ?>
-
-            </div>
-        </div>
-        <div class="col-md-1" align="center">
-            <a href="pdf/act.pdf">
-                <div><img src="img/adobe.png" width="50"></div>
-            </a>
-
-            <div>PDF</div>
         </div>
     </div>
     <div class="row">

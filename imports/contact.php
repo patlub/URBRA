@@ -9,7 +9,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-7">
-                        <form role="form" method="post">
+                        <form id="comment-form" role="form" method="post">
                             <div class="form-group">
                                 <label for="name">Name</label><input type="text" id="name" name="name" class="form-control" required>
                             </div>

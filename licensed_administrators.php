@@ -15,15 +15,25 @@ require_once 'classes/DatabaseHelper.php';
         <?php include_once 'imports/menu.php'; ?>
     </div>
     <div class="row">
+        <div class="col-md-4">
+            <h3 style="padding-left: 1%;">Licenced Administrators</h3>
+        </div>
+        <div class="col-md-8">
+            <h4 class="pull-right">Last Updated:
+                <?php
+                $db_helper = new DatabaseHelper();
+                echo $db_helper->get_admin_stamp();
+                ?>
+            </h4>
+        </div>
         <div class="col-md-10">
             <table id="table" cellpadding="0" cellspacing="0" border="0"
                    class="table table-striped table-bordered">
                 <thead>
                 <tr>
+                    <th>#</th>
                     <th>Name</th>
-                    <th>Category</th>
                     <th>Address</th>
-                    <th>Web link</th>
                 </tr>
                 </thead>
                 <tbody>

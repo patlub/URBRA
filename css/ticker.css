@@ -71,7 +71,8 @@
 	}
 	.ticker-container .ticker-caption {
 		height: 100%;
-		width: 150px;
+		/*width: 150px;*/
+		width: auto;
 		background: url('./ticker-caption-bg.png');
 	}
 	.ticker-container .ticker-caption p {
@@ -84,7 +85,7 @@
 	}
 	.ticker-container ul div {
 		height: 100%;
-		left: 170px;
+		left: 80px;
 	}
 	.ticker-container ul div.ticker-active {
 		top: 0;
